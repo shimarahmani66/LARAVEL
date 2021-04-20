@@ -1,0 +1,9 @@
+# Turn rewriting on
+Options +FollowSymLinks
+RewriteEngine On
+# Redirect requests to index.php
+RewriteCond %{REQUEST_URI} !=/index.php
+RewriteCond %{REQUEST_URI} !.*\.zip$ [NC]
+RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+RewriteCond %{THE_REQUEST} ^.*/index.php 
+RewriteRule ^(.*)index.php$ http://http://localhost:81/$1 [R=301,L] 
